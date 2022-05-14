@@ -17,4 +17,4 @@ app.use(express.json());
 
 app.use('/product',productRouter);
 
-app.listen('3000');
+app.listen(process.env.ENVIRONMENT || 5000);
