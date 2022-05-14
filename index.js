@@ -20,4 +20,4 @@ app.use(express.json());
 
 app.use('/product',productRouter);
 console.log(process.env.ENVIRONMENT);
-app.listen(process.env.ENVIRONMENT || 5000);
+app.listen(process.env.PORT || 5000);
