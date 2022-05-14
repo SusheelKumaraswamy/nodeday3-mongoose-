@@ -10,10 +10,11 @@ dotenv.config();
 database.mongooseconnect();
 
 app.use(express.json());
-// app.use('/',(req,res,next)=>{
-//     res.send("Hello im middleware '/' ");
-//     next();
-// })
+
+app.use('/',(req,res,next)=>{
+    res.send("Hello im middleware '/' ");
+    next();
+});
 
 app.use('/product',productRouter);
 
