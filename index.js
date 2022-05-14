@@ -5,17 +5,19 @@ var app =express();
 const productRouter=require('./router/product');
 
 
-dotenv.config();
+var cors= require('cors');
 
+
+app.use(cors());
+dotenv.config();
 database.mongooseconnect();
 
-app.use(express.json());
 
-app.use('/',(req,res,next)=>{
-    res.send("Hello im middleware '/' ");
-    next();
-});
+app.use(express.json());
+// app.use('/',(req,res,next)=>{
+//     res.send("Hello im middleware '/' ");
+// })
 
 app.use('/product',productRouter);
-
+console.log(process.env.ENVIRONMENT);
 app.listen(process.env.ENVIRONMENT || 5000);
